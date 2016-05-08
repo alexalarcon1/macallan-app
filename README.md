@@ -1,3 +1,3 @@
 # Project Macallan
 
-Class project Project Management 5800
+Class project for Project Management 5800 at Baruch College
