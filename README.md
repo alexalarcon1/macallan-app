@@ -1,3 +1,3 @@
-# Getting started with Play (Scala)
+# Project Macallan
 
-This project demonstrate how to create a simple CRUD application with Play.
+Class project Project Management 5800
