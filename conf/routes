@@ -4,7 +4,8 @@
 
 # Macallan App
 GET      /                          controllers.ApplicationController.login
-POST     /dashboard                 controllers.ApplicationController.dashboard
+GET      /dashboard                 controllers.ApplicationController.dashboard
+POST     /login                     controllers.UsersController.loginUser
 
 GET      /users                     controllers.UsersController.index
 POST     /addUser                   controllers.UsersController.addUser

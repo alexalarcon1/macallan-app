@@ -46,5 +46,11 @@ class UsersDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
       // And finally, insert the person into the database
       ) += (username, password, firstName, lastName, address, phoneNumber, role)
   }
+
+  def findByUsernamePassword(username: String, password: String): Future[User] = {
+    val u = users.filter(_.username === username).filter(_.password === password)
+    db.run(u.result.head)
+
+  }
 }
 

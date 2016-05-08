@@ -35,8 +35,9 @@ class UsersController @Inject() (usersDao: UsersDao) extends Controller {
     )(User.apply)(User.unapply)
   }
 
+
   def addUser = Action.async { implicit  request =>
-    // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle succes.
+    // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle success.
     val user = userForm.bindFromRequest().get
     usersDao.insert(user.username, user.password, user.firstName, user.lastName, user.address, user.phoneNumber, user.role)
     Future(Redirect(routes.UsersController.index()))
@@ -45,6 +46,23 @@ class UsersController @Inject() (usersDao: UsersDao) extends Controller {
   def getUsers = Action.async { implicit request =>
     usersDao.findAll().map { user =>
       Ok(Json.toJson(user))
+    }
+  }
+
+  def loginUser = Action.async(parse.json) { request =>
+    val json = request.body
+    val usernameOpt = (json \ "username").asOpt[String]
+    val passwordOpt = (json \ "password").asOpt[String]
+
+    (usernameOpt, passwordOpt) match {
+      case (Some(username), Some(password)) => {
+        for {
+          us <- usersDao.findByUsernamePassword(username, password)
+        } yield Ok(Json.obj("status" -> "OK", "user" -> us.toJson))
+      } recover { case e =>
+          BadRequest(Json.obj("status" -> "Failed", "message" -> "Incorrect username/password"))
+      }
+      case _ => Future(BadRequest(Json.obj("status" -> "Failed", "message" -> "Missing username/password")))
     }
   }
 }
