@@ -9,24 +9,22 @@ case class Product(id: Long=0,
                    name: String,
                    brand: String,
                    price: Double,
-                   size: Double,
+                   size: String,
                    kind: String,
                    percentage: Double,
-                   country: String,
-                   status: String,
-                   supplier_id: Long
+                   origin: String,
+                   status: String
                   ) {
   def toJson = {
     Json.obj("id" -> JsNumber(id),
       "name" -> JsString(name),
       "brand" -> JsString(brand),
       "price" -> JsNumber(price),
-      "size" -> JsNumber(size),
+      "size" -> JsString(size),
       "kind" -> JsString(kind),
       "percentage" -> JsNumber(percentage),
-      "country" -> JsString(country),
-      "status" -> JsString(status),
-      "supplier_id" -> JsNumber(supplier_id)
+      "origin" -> JsString(origin),
+      "status" -> JsString(status)
     )
   }
 }
@@ -38,12 +36,11 @@ object Product {
       "name" -> JsString(p.name),
       "brand" -> JsString(p.brand),
       "price" -> JsNumber(p.price),
-      "size" -> JsNumber(p.size),
+      "size" -> JsString(p.size),
       "kind" -> JsString(p.kind),
       "percentage" -> JsNumber(p.percentage),
-      "country" -> JsString(p.country),
-      "status" -> JsString(p.status),
-      "supplier_id" -> JsNumber(p.supplier_id)
+      "origin" -> JsString(p.origin),
+      "status" -> JsString(p.status)
     )
   }
 

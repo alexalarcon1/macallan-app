@@ -30,13 +30,13 @@ case class Order(id: Long=0,
 
   def toJsonWithProducts(productSequence: Seq[Product]): JsObject = {
 
-    toJson + ("order_shoe_pairs" -> JsArray(productSequence.map { p =>
+    toJson + ("products" -> JsArray(productSequence.map { p =>
       Product.productWrites.writes(p)
     }))
   }
 }
 
-object Order {
+/*object Order {
   implicit val orderFormat = Json.format[Order]
 
-}
+}*/
