@@ -8,15 +8,15 @@ import play.api.mvc._
 /*
 trait ApplicationComponent {
   this: Controller =>
-    def index = Action { implicit r =>
-      Ok(views.html.index())
+    def dashboard = Action { implicit r =>
+      Ok(views.html.dashboard())
     }
 }*/
 
-class Application extends Controller {
+class ApplicationController extends Controller {
 
-  def index = Action { implicit request =>
-    Ok(views.html.index())
+  def dashboard = Action { implicit request =>
+    Ok(views.html.dashboard())
   }
 
   def login = Action { implicit request =>
