@@ -1,6 +1,6 @@
 package models
 
-import play.api.libs.json.{JsNumber, JsString, Json}
+import play.api.libs.json.{JsNumber, JsString, Json, Writes}
 
 /**
   * Created by alex_alarcon on 5/8/2016.
@@ -32,6 +32,19 @@ case class Product(id: Long=0,
 }
 
 object Product {
-  implicit val productFormat = Json.format[Product]
+  implicit val productWrites = new Writes[Product] {
+    def writes(p: Product) = Json.obj(
+      "id" -> JsNumber(p.id),
+      "name" -> JsString(p.name),
+      "brand" -> JsString(p.brand),
+      "price" -> JsNumber(p.price),
+      "size" -> JsNumber(p.size),
+      "kind" -> JsString(p.kind),
+      "percentage" -> JsNumber(p.percentage),
+      "country" -> JsString(p.country),
+      "status" -> JsString(p.status),
+      "supplier_id" -> JsNumber(p.supplier_id)
+    )
+  }
 
 }
