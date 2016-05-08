@@ -1,0 +1,19 @@
+@main("users"){
+
+  <script type='text/javascript' src='@routes.Assets.versioned("javascripts/users.js")'></script>
+
+  <h3>Users:</h3>
+  <ul id="users"></ul>
+
+  <form action="@routes.UsersController.addUser()" method="post">
+    Username: <input name="username" type="text"><br>
+    Password: <input name="password" type="password"><br>
+    FirstName: <input name="firstName" type="text"><br>
+    LastName: <input name="lastName" type="text"><br>
+    Address: <input name="address" type="text"><br>
+    Phone Number: <input name="phoneNumber" type="text"><br>
+    Role: <input name="role" type="text"><br>
+    <button>Create User</button>
+  </form>
+}
+
