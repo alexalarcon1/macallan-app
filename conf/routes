@@ -7,10 +7,14 @@ GET      /                          controllers.ApplicationController.login
 GET      /dashboard                 controllers.ApplicationController.dashboard
 POST     /login                     controllers.UsersController.loginUser
 
+# Users
 GET      /users                     controllers.UsersController.index
 POST     /addUser                   controllers.UsersController.addUser
 GET      /users/display             controllers.UsersController.getUsers
 GET      /test                      controllers.TestController.index
+
+# Products
+GET     /products                   controllers.ProductController.getProducts
 
 #GET      /users                     controllers.UsersController.dashboard
 #POST    /person                    controllers.PersonController.addPerson
