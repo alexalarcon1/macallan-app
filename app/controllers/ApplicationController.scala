@@ -15,11 +15,43 @@ trait ApplicationComponent {
 
 class ApplicationController extends Controller {
 
+  def login = Action { implicit request =>
+    Ok(views.html.login())
+  }
+
   def dashboard = Action { implicit request =>
     Ok(views.html.dashboard())
   }
 
-  def login = Action { implicit request =>
-    Ok(views.html.login())
+  def inventory = Action { implicit request  =>
+    Ok(views.html.inventory())
+  }
+
+  def newUser = Action { implicit request =>
+    Ok(views.html.new_user())
+  }
+
+  def newOrder = Action { implicit request =>
+    Ok(views.html.new_order())
+  }
+
+  def viewCurrentOrders = Action { implicit request =>
+    Ok(views.html.current_orders())
+  }
+
+  def viewOrderHistory = Action { implicit request =>
+    Ok(views.html.order_history())
+  }
+
+  def viewOrderErrors = Action { implicit request =>
+    Ok(views.html.order_errors())
+  }
+
+  def newOrderError = Action { implicit request =>
+    Ok(views.html.new_error())
+  }
+
+  def newProduct = Action { implicit request =>
+    Ok(views.html.new_product())
   }
 }
