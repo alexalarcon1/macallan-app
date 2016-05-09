@@ -19,5 +19,5 @@ class OrdersController @Inject()(ordersDao: OrdersDao) extends Controller {
     }
   }*/
 
-  //TODO OrderForm to create new orders
+  //TODO bind OrderForm to create new orders
 }
