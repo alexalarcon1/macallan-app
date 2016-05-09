@@ -18,11 +18,12 @@ class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     def price = column[Double]("price")
     def size = column[String]("size")
     def kind = column[String]("kind")
+    def quantity = column[Long]("quantity")
     def percentage = column[Double]("percentage")
     def origin = column[String]("origin")
     def status = column[String]("status")
 
-    def * = (id, name, brand, price, size, kind, percentage, origin, status) <> ((Product.apply _).tupled, Product.unapply _)
+    def * = (id, name, brand, price, size, kind, quantity, percentage, origin, status) <> ((Product.apply _).tupled, Product.unapply _)
   }
 
   val products = TableQuery[Products]

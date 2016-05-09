@@ -11,6 +11,7 @@ case class Product(id: Long=0,
                    price: Double,
                    size: String,
                    kind: String,
+                   quantity: Long,
                    percentage: Double,
                    origin: String,
                    status: String
@@ -21,6 +22,7 @@ case class Product(id: Long=0,
       "brand" -> JsString(brand),
       "price" -> JsNumber(price),
       "size" -> JsString(size),
+      "quantity" -> JsNumber(quantity),
       "kind" -> JsString(kind),
       "percentage" -> JsNumber(percentage),
       "origin" -> JsString(origin),
@@ -37,11 +39,12 @@ object Product {
       "brand" -> JsString(p.brand),
       "price" -> JsNumber(p.price),
       "size" -> JsString(p.size),
+      "quantity" -> JsNumber(p.quantity),
       "kind" -> JsString(p.kind),
       "percentage" -> JsNumber(p.percentage),
       "origin" -> JsString(p.origin),
       "status" -> JsString(p.status)
     )
   }
-
 }
+
