@@ -15,41 +15,47 @@
 
       <div class="row">
         <div class="col-lg-12">
+          <form id="new-product-form" action="@routes.ProductController.addProduct()" method="post" role="form">
 
-          <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-              <thead>
-                <tr>
-                  <th>Product ID</th>
-                  <th>Supplier ID</th>
-                  <th>Category ID</th>
-                  <th>Product Name</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                  <th>Reorder level</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="text" class="form-control" /></td>
-                  <td><input type="text" class="form-control" /></td>
-                  <td><input type="text" class="form-control" /></td>
-                  <td><input type="text" class="form-control" /></td>
-                  <td><input type="text" class="form-control" /></td>
-                  <td><input type="text" class="form-control" /></td>
-                  <td><input type="text" class="form-control" /></td>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Type</th>
+                    <th>Quantity</th>
+                    <th>Percentage</th>
+                    <th>Origin</th>
+                    <th>Status</th>
+                  </tr>
 
-                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><input name="name" type="text" class="form-control" /></td>
+                    <td><input name="brand"type="text" class="form-control" /></td>
+                    <td><input name="price" type="text" class="form-control" /></td>
+                    <td><input name="size" type="text" class="form-control" /></td>
+                    <td><input name="kind" type="text" class="form-control" /></td>
+                    <td><input name="quantity" type="text" class="form-control" /></td>
+                    <td><input name="percentage" type="text" class="form-control" /></td>
+                    <td><input name="origin" type="text" class="form-control" /></td>
+                    <td><input name="status" type="text" class="form-control" /></td>
+                  </tr>
 
-              </tbody>
-            </table>
-          </div>
+                </tbody>
+              </table>
+            </div>
+
+            <button type="submit" class="btn btn-default">Add</button>
+          </form>
         </div>
       </div>
         <!-- /.row -->
-      <form>
-      <button type="submit" class="btn btn-default">Add new product</button>
-      </form>
+
     </div>
       <!-- /.container-fluid -->
 
