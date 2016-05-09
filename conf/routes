@@ -25,7 +25,8 @@ GET      /order/errors/new          controllers.ApplicationController.newOrderEr
 # Products
 GET      /inventory                 controllers.ApplicationController.inventory
 GET      /products                  controllers.ProductController.getProducts
-GET      /products/new              controllers.ApplicationController.newProduct
+GET      /products/new              controllers.ProductController.newProduct
+POST     /products/add              controllers.ProductController.addProduct
 
 
 #GET      /users                     controllers.UsersController.dashboard

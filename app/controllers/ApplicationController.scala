@@ -47,7 +47,5 @@ class ApplicationController extends Controller {
     Ok(views.html.new_error())
   }
 
-  def newProduct = Action { implicit request =>
-    Ok(views.html.new_product())
-  }
+
 }

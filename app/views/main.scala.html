@@ -87,7 +87,7 @@
                                     <a href="@routes.ApplicationController.">Update Inventory</a>
                                 </li>*@
                                 <li>
-                                    <a href="@routes.ApplicationController.newProduct()">Add New Product</a>
+                                    <a href="@routes.ProductController.newProduct()">Add New Product</a>
                                 </li>
                             </ul>
                         </li>
@@ -150,6 +150,9 @@
 
             <!-- Bootstrap Core JavaScript -->
         <script src="@routes.Assets.versioned("admin-temp/js/bootstrap.min.js")"></script>
+
+            <!-- Load Product Table -->
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/products.js")"></script>
 
         <!-- Handle New User -->
        @* <script>
