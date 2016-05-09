@@ -17,7 +17,12 @@
         <div class="row">
           <div class="col-lg-6">
 
-            <form action="@routes.UsersController.addUser()" method="post" role="form">
+            <div id="messages" class="hide" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <div id="messages_content"></div>
+            </div>
+
+            <form id="new-user-form" action="@routes.UsersController.addUser()" method="post" role="form">
               <div class="form-group">
                 <label>Username</label>
                 <input name="username" type="text" class="form-control" placeholder="Enter username">
@@ -73,11 +78,8 @@
                     <input type="text" class="form-control">
                   </div>
                 </div>*@
-
               <button type="submit" class="btn btn-default">Create User</button>
-
             </form>
-
           </div>
 
 

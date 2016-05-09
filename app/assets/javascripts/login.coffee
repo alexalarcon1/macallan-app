@@ -19,7 +19,7 @@ $ ->
         console.log("You've logged in!")
         console.log(data)
         alert("Welcome!")
-        window.location.replace("/dashboard")
+        window.location.replace("/home")
       error: (data) ->
         console.log("Error with submission")
         console.log(data)
