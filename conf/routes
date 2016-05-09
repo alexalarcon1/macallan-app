@@ -4,8 +4,15 @@
 
 # Macallan App
 GET      /                          controllers.ApplicationController.login
-GET      /overview                 controllers.ApplicationController.dashboard
+GET      /home                 controllers.ApplicationController.dashboard
+
+# Users
 POST     /login                     controllers.UsersController.loginUser
+GET      /user/new                  controllers.UsersController.newUser
+POST     /addUser                   controllers.UsersController.addUser
+GET      /users                     controllers.UsersController.index
+GET      /users/display             controllers.UsersController.getUsers
+GET      /test                      controllers.TestController.index
 
 #Orders
 GET      /order/new                 controllers.ApplicationController.newOrder
@@ -14,12 +21,6 @@ GET      /order/history             controllers.ApplicationController.viewOrderH
 GET      /order/errors              controllers.ApplicationController.viewOrderErrors
 GET      /order/errors/new          controllers.ApplicationController.newOrderError
 
-# Users
-GET      /user/new                  controllers.ApplicationController.newUser
-GET      /users                     controllers.UsersController.index
-POST     /addUser                   controllers.UsersController.addUser
-GET      /users/display             controllers.UsersController.getUsers
-GET      /test                      controllers.TestController.index
 
 # Products
 GET      /inventory                 controllers.ApplicationController.inventory

@@ -22,6 +22,7 @@ class UsersController @Inject() (usersDao: UsersDao) extends Controller {
     Future(Ok(views.html.users()))
   }
 
+
   val userForm: Form[User] = Form {
     mapping(
       "id" -> ignored(0L),
@@ -35,12 +36,15 @@ class UsersController @Inject() (usersDao: UsersDao) extends Controller {
     )(User.apply)(User.unapply)
   }
 
+  def newUser = Action { implicit request =>
+    Ok(views.html.new_user())
+  }
 
   def addUser = Action.async { implicit  request =>
     // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle success.
     val user = userForm.bindFromRequest().get
     usersDao.insert(user.username, user.password, user.firstName, user.lastName, user.address, user.phoneNumber, user.role)
-    Future(Redirect(routes.UsersController.index()))
+    Future(Redirect(routes.UsersController.newUser()).flashing("success" -> "New user was created"))
   }
 
   def getUsers = Action.async { implicit request =>
