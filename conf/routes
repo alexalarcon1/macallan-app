@@ -15,10 +15,10 @@ GET      /order/errors              controllers.ApplicationController.viewOrderE
 GET      /order/errors/new          controllers.ApplicationController.newOrderError
 
 # Users
-GET      /user/new                  controllers.ApplicationController.newUser
+GET      /user/new                  controllers.UsersController.newUser
 GET      /users                     controllers.UsersController.index
-POST     /addUser                   controllers.UsersController.addUser
 GET      /users/display             controllers.UsersController.getUsers
+POST     /addUser                   controllers.UsersController.addUser
 GET      /test                      controllers.TestController.index
 
 # Products
