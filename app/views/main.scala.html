@@ -71,7 +71,7 @@
                     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li class="active">
+                        <li id="overview-tab" class="active">
                             <a href="@routes.ApplicationController.dashboard()"><i class="fa fa-fw fa-dashboard"></i>Overview</a>
                         </li>
                         @*<li>
@@ -151,8 +151,10 @@
             <!-- Bootstrap Core JavaScript -->
         <script src="@routes.Assets.versioned("admin-temp/js/bootstrap.min.js")"></script>
 
-            <!-- Load Product Table -->
+            <!-- jQuery scripts -->
+        <script type="text/javascript" src="@routes.Assets.versioned("javascripts/navbar.js")"></script>
         <script type="text/javascript" src="@routes.Assets.versioned("javascripts/products.js")"></script>
+
 
         <!-- Handle New User -->
        @* <script>

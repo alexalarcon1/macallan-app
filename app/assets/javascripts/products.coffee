@@ -1,4 +1,5 @@
-$ ->
+#View Inventory
+$ ->  
   $.get "/products", (productJson) ->
     $.each productJson, (index, prod) ->
       id = $('<td>').append(prod.id)
