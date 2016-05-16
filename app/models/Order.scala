@@ -54,16 +54,18 @@ case class Order(id: Long=0,
 
 }*/
 
-case class NewOrder(userId: Long,
-                    order_date: String,
-                    status: String,
-                    products: List[NewProducts])
+case class  NewOrder(product_name: String,
+                     product_brand: String,
+                     product_size: Double,
+                     product_quantity: Long)
+                    //products: List[NewProducts])
 object NewOrder {
   implicit val reads: Reads[NewOrder] = (
-      (JsPath \ "order" \ "userId").read[Long] and
-      (JsPath \ "order" \ "order_date").read[String] and
-      (JsPath \ "order" \ "status").read[String] and
-      (JsPath \ "order" \ "products").read[List[NewProducts]]
+      (JsPath \ "order" \ "product_name").read[String] and
+      (JsPath \ "order" \ "product_brand").read[String] and
+      (JsPath \ "order" \ "product_size").read[Double] and
+      (JsPath \ "order" \ "product_quantity").read[Long]
+      //(JsPath \ "order" \ "products").read[List[NewProducts]]
     )(NewOrder.apply _)
 
 }
