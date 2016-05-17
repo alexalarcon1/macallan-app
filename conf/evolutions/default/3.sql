@@ -14,9 +14,6 @@ CREATE TABLE IF NOT EXISTS products (
 
 );
 
-INSERT INTO products (name, brand, price, size, kind, quantity, percentage, origin, status) VALUES ('Honey Jack', 'Jack Daniels', 16.00, '1.75L', 'Whiskey', 20, .35, 'American', 'Available');
-
 
 # --- !Downs
 DROP TABLE products;
-DELETE FROM products;
