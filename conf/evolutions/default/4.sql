@@ -1,5 +1,3 @@
--- noinspection SqlDialectInspectionForFile
--- noinspection SqlNoDataSourceInspectionForFile
 # --- !Ups
 CREATE TABLE IF NOT EXISTS orders (
     id BIGSERIAL PRIMARY KEY,

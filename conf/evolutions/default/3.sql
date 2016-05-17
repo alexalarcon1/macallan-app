@@ -1,4 +1,3 @@
--- noinspection SqlNoDataSourceInspectionForFile
 # --- !Ups
 CREATE TABLE IF NOT EXISTS products (
     id BIGSERIAL PRIMARY KEY,
