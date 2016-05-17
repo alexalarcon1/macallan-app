@@ -23,7 +23,7 @@ class ProductController @Inject() (productDao: ProductsDao) extends Controller {
       "name" -> text,
       "brand" -> text,
       "price" -> of(doubleFormat),
-      "size" -> text,
+      "size" -> of(doubleFormat),
       "kind" -> text,
       "quantity" -> longNumber,
       "percentage" -> of(doubleFormat),

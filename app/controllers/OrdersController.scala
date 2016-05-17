@@ -2,6 +2,10 @@ package controllers
 
 import com.google.inject.Inject
 import dao.OrdersDao
+import models.{NewOrder, Order}
+import play.api.data.Form
+import play.api.data.Forms._
+import play.api.data.format.Formats._
 import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
 
@@ -20,4 +24,12 @@ class OrdersController @Inject()(ordersDao: OrdersDao) extends Controller {
   }*/
 
   //TODO bind OrderForm to create new orders
+  val newOrderForm: Form[NewOrder] = Form {
+    mapping(
+      "product_name" -> text,
+      "product_brand" -> text,
+      "product_size" -> of(doubleFormat),
+      "product_quantity" -> longNumber
+    )(NewOrder.apply)(NewOrder.unapply)
+  }
 }

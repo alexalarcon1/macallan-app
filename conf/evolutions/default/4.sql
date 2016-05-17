@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS orders (
 
 );
 
-CREATE TABLE IF NOT EXISTS orderedProducts (
+CREATE TABLE IF NOT EXISTS ordered_products (
   id BIGSERIAL PRIMARY KEY,
   productId BIGINT NOT NULL,
   orderId BIGINT
@@ -19,4 +19,4 @@ CREATE TABLE IF NOT EXISTS orderedProducts (
 
 # --- !Downs
 DROP TABLE orders;
-DROP TABLE orderedProducts;
+DROP TABLE ordered_products;
