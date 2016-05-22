@@ -1,0 +1,2 @@
+$ ->
+  $.get "/product", (productJson) ->

@@ -9,13 +9,13 @@ import play.api.libs.json.{JsNumber, JsString, Json, Writes}
 case class  NewOrder(id: Long=0,
                      product_name: String,
                      product_brand: String,
-                     product_size: Double,
+                     product_size: String,
                      product_quantity: Long) {
   def toJson = {
     Json.obj("id" -> JsNumber(id),
       "product_name" -> JsString(product_name),
       "product_brand" -> JsString(product_brand),
-      "product_size" -> JsNumber(product_size),
+      "product_size" -> JsString(product_size),
       "product_quantity" -> JsNumber(product_quantity)
     )
   }
@@ -27,7 +27,7 @@ object NewOrder {
       "id" -> JsNumber(nOrd.id),
       "name" -> JsString(nOrd.product_name),
       "brand" -> JsString(nOrd.product_brand),
-      "size" -> JsNumber(nOrd.product_size),
+      "size" -> JsString(nOrd.product_size),
       "quantity" -> JsNumber(nOrd.product_quantity)
     )
   }

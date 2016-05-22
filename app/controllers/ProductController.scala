@@ -40,7 +40,7 @@ class ProductController @Inject() (productDao: ProductsDao) extends Controller {
     Ok(views.html.new_product())
   }
 
-  def getProducts = Action.async { implicit request =>
+  def getAllProducts = Action.async { implicit request =>
     productDao.findAll().map { product =>
       Ok(Json.toJson(product))
     }
@@ -48,7 +48,7 @@ class ProductController @Inject() (productDao: ProductsDao) extends Controller {
 
   def getProduct(id: Long) = Action.async { implicit  request =>
     productDao.findById(id).map { product =>
-      Ok(Json.toJson(product))
+      Ok(views.html.new_order(product))
     }
   }
 

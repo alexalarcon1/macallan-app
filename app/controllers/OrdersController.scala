@@ -24,9 +24,9 @@ class OrdersController @Inject()(newOrdersDao: NewOrdersDao) extends Controller 
     }
   }*/
 
-  def newOrder = Action { implicit request =>
+/*  def newOrder = Action { implicit request =>
     Ok(views.html.new_order())
-  }
+  }*/
 
   def viewCurrentOrders = Action { implicit request =>
     Ok(views.html.current_orders())
@@ -42,14 +42,14 @@ class OrdersController @Inject()(newOrdersDao: NewOrdersDao) extends Controller 
       "id" -> ignored(0L),
       "product_name" -> nonEmptyText(2,15),
       "product_brand" -> nonEmptyText(2,15),
-      "product_size" -> of(doubleFormat),
+      "product_size" -> nonEmptyText(4),
       "product_quantity" -> longNumber
     )(NewOrder.apply)(NewOrder.unapply)
   }
 
-  def getOrders = Action.async { implicit request =>
-    newOrdersDao.findAll().map { product =>
-      Ok(Json.toJson(product))
+  def getAllOrders = Action.async { implicit request =>
+    newOrdersDao.findAll().map { order =>
+      Ok(Json.toJson(order))
     }
   }
 

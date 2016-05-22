@@ -20,7 +20,7 @@ class NewOrdersDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvi
     def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
     def product_name = column[String]("product_name")
     def product_brand = column[String]("product_brand")
-    def product_size = column[Double]("product_size")
+    def product_size = column[String]("product_size")
     def product_quantity = column[Long]("product_quantity")
 
     def * = (id, product_name, product_brand, product_size, product_quantity) <> ((NewOrder.apply _).tupled, NewOrder.unapply _)
@@ -47,7 +47,7 @@ class NewOrdersDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvi
     db.run(o.result.head)
   }*/
 
-   def insert(name: String, brand: String, size: Double, quantity: Long): Future[NewOrder] = db.run {
+   def insert(name: String, brand: String, size: String, quantity: Long): Future[NewOrder] = db.run {
      (newOrders.map(no => (no.product_name, no.product_brand, no.product_size, no.product_quantity))
        returning newOrders.map(_.id)
        into ((nOrd, id) => NewOrder(id, nOrd._1, nOrd._2, nOrd._3, nOrd._4))
