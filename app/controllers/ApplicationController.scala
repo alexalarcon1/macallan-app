@@ -27,18 +27,6 @@ class ApplicationController extends Controller {
     Ok(views.html.inventory())
   }
 
-  def newOrder = Action { implicit request =>
-    Ok(views.html.new_order())
-  }
-
-  def viewCurrentOrders = Action { implicit request =>
-    Ok(views.html.current_orders())
-  }
-
-  def viewOrderHistory = Action { implicit request =>
-    Ok(views.html.order_history())
-  }
-
   def viewOrderErrors = Action { implicit request =>
     Ok(views.html.order_errors())
   }

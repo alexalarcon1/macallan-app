@@ -20,15 +20,15 @@ class ProductController @Inject() (productDao: ProductsDao) extends Controller {
   val productForm: Form[Product] = Form {
     mapping(
       "id" -> ignored(0L),
-      "name" -> text,
-      "brand" -> text,
+      "name" -> nonEmptyText(2,15),
+      "brand" -> nonEmptyText(2,15),
       "price" -> of(doubleFormat),
       "size" -> of(doubleFormat),
-      "kind" -> text,
+      "kind" -> nonEmptyText(2,15),
       "quantity" -> longNumber,
       "percentage" -> of(doubleFormat),
-      "origin" -> text,
-      "status" -> text
+      "origin" -> nonEmptyText(2,15),
+      "status" -> nonEmptyText(2,15)
     )(Product.apply)(Product.unapply)
   }
 
@@ -45,6 +45,7 @@ class ProductController @Inject() (productDao: ProductsDao) extends Controller {
   def addProduct = Action.async { implicit  request =>
     // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle success.
     val prod = productForm.bindFromRequest().get
+
     productDao.insert(prod.name, prod.brand, prod.price, prod.size, prod.kind, prod.quantity, prod.percentage, prod.origin, prod.status)
     Future(Redirect(routes.ProductController.newProduct()).flashing("success" -> "Product was added"))
   }

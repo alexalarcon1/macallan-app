@@ -15,12 +15,12 @@ GET      /users/display             controllers.UsersController.getUsers
 GET      /test                      controllers.TestController.index
 
 #Orders
-GET      /order/new                 controllers.ApplicationController.newOrder
-GET      /order/current             controllers.ApplicationController.viewCurrentOrders
-GET      /order/history             controllers.ApplicationController.viewOrderHistory
+GET      /order/new                 controllers.OrdersController.newOrder
+GET      /order/current             controllers.OrdersController.viewCurrentOrders
+GET      /order/history             controllers.OrdersController.viewOrderHistory
 GET      /order/errors              controllers.ApplicationController.viewOrderErrors
 GET      /order/errors/new          controllers.ApplicationController.newOrderError
-
+POST     /order/add                 controllers.OrdersController.addNewOrder
 
 # Products
 GET      /inventory                 controllers.ApplicationController.inventory
