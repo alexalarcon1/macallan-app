@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS products (
     name VARCHAR NOT NULL,
     brand VARCHAR NOT NULL,
     price DECIMAL NOT NULL,
-    size DECIMAL NOT NULL,
+    size VARCHAR NOT NULL,
     kind VARCHAR NOT NULL,
     quantity INTEGER NOT NULL,
     percentage DECIMAL NOT NULL,

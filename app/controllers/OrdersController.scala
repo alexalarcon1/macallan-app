@@ -47,6 +47,12 @@ class OrdersController @Inject()(newOrdersDao: NewOrdersDao) extends Controller 
     )(NewOrder.apply)(NewOrder.unapply)
   }
 
+  def getOrders = Action.async { implicit request =>
+    newOrdersDao.findAll().map { product =>
+      Ok(Json.toJson(product))
+    }
+  }
+
   def addNewOrder = Action.async { implicit  request =>
     // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle success.
     val ord = newOrderForm.bindFromRequest().get

@@ -28,6 +28,12 @@ class NewOrdersDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvi
 
   val newOrders = TableQuery[NewOrders]
 
+  def findAll() = {
+    val q = for {
+      orders <- newOrders
+    } yield orders
+    db.run(q.sortBy(no => no.id.asc).result)
+  }
 
   def findOrderById(orderId: Long) = {
     val a = for {

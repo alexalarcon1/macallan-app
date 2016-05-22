@@ -12,9 +12,11 @@ $ ->
       perct = $('<td>').append(prod.percentage)
       origin = $('<td>').append(prod.origin)
       status = $('<td>').append(prod.status)
+      orderLink = $('<a class="btn btn-default">').attr("href", "/product/#{prod.id}").append("Make an Order")
+      #orderBtn = $('<button type="button" class="btn btn-default">Make an Order</button>')
 
       #Append to table row
-      row = $('<tr>').append(id, name, brand, price, size, kind, qt, perct, origin, status)
+      row = $('<tr>').append(id, name, brand, price, size, kind, qt, perct, origin, status, orderLink)
 
       #Append to body
       $('#product-container').append(row)

@@ -23,9 +23,7 @@ class ApplicationController extends Controller {
     Ok(views.html.dashboard())
   }
 
-  def inventory = Action { implicit request  =>
-    Ok(views.html.inventory())
-  }
+
 
   def viewOrderErrors = Action { implicit request =>
     Ok(views.html.order_errors())

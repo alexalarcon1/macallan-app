@@ -18,7 +18,7 @@ class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     def name = column[String]("name")
     def brand = column[String]("brand")
     def price = column[Double]("price")
-    def size = column[Double]("size")
+    def size = column[String]("size")
     def kind = column[String]("kind")
     def quantity = column[Long]("quantity")
     def percentage = column[Double]("percentage")
@@ -37,7 +37,14 @@ class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     db.run(q.sortBy(p => p.id.asc).result)
   }
 
-  def insert(name: String, brand: String, price: Double, size: Double, kind: String, quantity: Long, percentage: Double, origin: String, status: String ): Future[Product] = db.run {
+  def findById(id: Long) = {
+    val q = for {
+      p <- products.filter(_.id === id)
+    } yield p
+    db.run(q.result)
+  }
+
+  def insert(name: String, brand: String, price: Double, size: String, kind: String, quantity: Long, percentage: Double, origin: String, status: String ): Future[Product] = db.run {
     // We create a projection of just the name and age columns, since we're not inserting a value for the id column
     (products.map(p => (p.name, p.brand, p.price, p.size, p.kind, p.quantity, p.percentage, p.origin, p.status))
       // Now define it to return the id, because we want to know what id was generated for the person
