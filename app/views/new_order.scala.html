@@ -14,40 +14,42 @@
           <!-- /.row -->
 
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-3">
 
-            <form role="form">
+            <form id="new-order-form" action="@routes.OrdersController.addNewOrder()" method="post" role="form">
               <div class="form-group">
                 <label>Product Name</label>
-                <input class="form-control">
+                <input name="product_name" type="text" class="form-control">
 
               </div>
+
+              <div class="form-group">
+                <label>Brand</label>
+                <input name="product_brand" type="text" class="form-control">
+              </div>
+
               <div class="form-group">
                 <label>Size</label>
-                <input class="form-control">
-
+                <input name="product_size" type="text" class="form-control">
               </div>
+
+              <div class="form-group">
+                <label>Quantity(bottles)</label>
+                <input name="product_quantity" type="text" class="form-control">
+                @*<select name="product_quantity" class="form-control">
+                  <option>10</option>
+                  <option>25</option>
+                  <option>50</option>
+                </select>*@
+              </div>
+
 
               <button type="submit" class="btn btn-default">Submit Order</button>
 
             </form>
 
           </div>
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label>Brand</label>
-              <input class="form-control">
-            </div>
-            <div class="form-group">
-              <label>Quantity(bottles)</label>
-              <select class="form-control">
-                <option>10</option>
-                <option>25</option>
-                <option>50</option>
-              </select>
-            </div>
 
-          </div>
         </div>
           <!-- /.row -->
 

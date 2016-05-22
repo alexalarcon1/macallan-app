@@ -62,13 +62,13 @@
         <a href="javascript:;" data-toggle="collapse" data-target="#orders"><i class="fa fa-fw fa-table"></i> Orders <i class="fa fa-fw fa-caret-down"></i></a>
         <ul id="orders" class="collapse">
           <li id="new-order" class="">
-            <a href="@routes.ApplicationController.newOrder()">Make New Order</a>
+            <a href="@routes.OrdersController.newOrder()">Make New Order</a>
           </li>
           <li id="current-orders" class="">
-            <a href="@routes.ApplicationController.viewCurrentOrders()">View Current Orders</a>
+            <a href="@routes.OrdersController.viewCurrentOrders()">View Current Orders</a>
           </li>
           <li id="past-orders" class="">
-            <a href="@routes.ApplicationController.viewOrderHistory()">View Past Orders</a>
+            <a href="@routes.OrdersController.viewOrderHistory()">View Past Orders</a>
           </li>
         </ul>
       </li>
