@@ -1,7 +1,7 @@
 package controllers
 
 import com.google.inject.Inject
-import dao.{NewOrdersDao, OrdersDao}
+import dao.{NewOrdersDao, OrdersDao, ProductsDao}
 import models.{NewOrder, Order}
 import play.api.Logger
 import play.api.data.Form
@@ -16,7 +16,7 @@ import scala.concurrent.Future
 /**
   * Created by alex_alarcon on 5/8/2016.
   */
-class OrdersController @Inject()(newOrdersDao: NewOrdersDao) extends Controller {
+class OrdersController @Inject()(newOrdersDao: NewOrdersDao, productsDao: ProductsDao) extends Controller {
 
  /* def getOrders = Action.async { implicit request =>
     ordersDao.findByStatus("pendng").map { order =>
@@ -53,15 +53,15 @@ class OrdersController @Inject()(newOrdersDao: NewOrdersDao) extends Controller 
     }
   }
 
-  def addNewOrder = Action.async { implicit  request =>
+  def addNewOrder(/*oldQuantity: Seq[Long]*/) = Action.async { implicit  request =>
     // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle success.
     val ord = newOrderForm.bindFromRequest().get
 
-    Logger.info(ord.product_name)
-    Logger.info(ord.product_brand)
-    Logger.info(s"${ord.product_size}")
-    Logger.info(s"${ord.product_quantity}")
+    /*val qt = oldQuantity.map(q => q)
+    val newQt = qt - ord.product_quantity
 
+    productsDao.updateQuantity(ord.id, newQt)
+*/
     newOrdersDao.insert(ord.product_name, ord.product_brand, ord.product_size, ord.product_quantity)
     Future(Redirect(routes.OrdersController.viewCurrentOrders()))
   }

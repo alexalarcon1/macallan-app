@@ -59,4 +59,10 @@ class ProductController @Inject() (productDao: ProductsDao) extends Controller {
     productDao.insert(prod.name, prod.brand, prod.price, prod.size, prod.kind, prod.quantity, prod.percentage, prod.origin, prod.status)
     Future(Redirect(routes.ProductController.inventory()))
   }
+
+  def updateQuantity(id: Long, quantity: Long, numOrdered: Long) = Action.async { implicit  request =>
+    val newQt = quantity - numOrdered
+    productDao.updateQuantity(id, newQt)
+    Future(Ok(views.html.inventory()))
+  }
 }

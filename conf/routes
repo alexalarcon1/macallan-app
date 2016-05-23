@@ -21,14 +21,14 @@ GET      /order/history             controllers.OrdersController.viewOrderHistor
 GET      /order/errors              controllers.ApplicationController.viewOrderErrors
 GET      /order/errors/new          controllers.ApplicationController.newOrderError
 GET      /orders                    controllers.OrdersController.getAllOrders
-POST     /order/add                 controllers.OrdersController.addNewOrder
+POST     /order/add                 controllers.OrdersController.addNewOrder()
 
 # Products
 GET      /inventory                 controllers.ProductController.inventory
 GET      /products                  controllers.ProductController.getAllProducts
 GET      /products/new              controllers.ProductController.newProduct
 GET      /product/:id               controllers.ProductController.getProduct(id: Long)
-POST     /products/add              controllers.ProductController.addProduct
+POST     /products/add              controllers.ProductController.addProduct()
 
 
 #GET      /users                     controllers.UsersController.dashboard

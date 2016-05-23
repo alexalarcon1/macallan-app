@@ -44,6 +44,13 @@ class ProductsDao @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     db.run(q.result)
   }
 
+  def updateQuantity(id: Long, quantity: Long) = {
+    val q = for {
+      p <- products if p.id === id
+    } yield p.quantity
+    q.update(quantity)
+  }
+
   def insert(name: String, brand: String, price: Double, size: String, kind: String, quantity: Long, percentage: Double, origin: String, status: String ): Future[Product] = db.run {
     // We create a projection of just the name and age columns, since we're not inserting a value for the id column
     (products.map(p => (p.name, p.brand, p.price, p.size, p.kind, p.quantity, p.percentage, p.origin, p.status))
